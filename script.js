@@ -26,6 +26,7 @@ class Song {
     setItemGroupName(group,url){
         //sacar de tracks [] 
         let str = tracks;// me reconoce el array
+        this.name = name;
        
         // for( i = 0; i < str.length; i++){//recorre,pero me dice que result ya no es una array
             // como recorremos objetos?for... in!!
@@ -33,8 +34,9 @@ class Song {
              console.log(name + ": " + str[name]);
              //lee objetos
              if (str.hasOwnProperty(name)){
-                 this.group = name;
+                 group = name;
              }
+            // const name = Object.keys(name);
             }
         
        // console log no me da error pero me dice que no tengo declaradas ninguna de las let
@@ -51,9 +53,10 @@ class Song {
 
 }
 //pasar array de canciones tracks[]
+//array de objetos
 const loadSongs = ()=>{
  
-
+// for ...in
 }
 const loadOverview = () =>{
 }
