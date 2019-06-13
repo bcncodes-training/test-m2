@@ -77,7 +77,7 @@ const init = ()=>{
     menuOverview = document.getElementsById('overview')[0];
     menuOverview.classList.add('menu-item-selected');
     menuOverview.addEventListener('click', ()=> {
-        loadOverview();
+        //loadOverview();
     });
 
  
