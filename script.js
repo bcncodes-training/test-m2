@@ -32,6 +32,9 @@ class Song {
             for(let name in str){
              console.log(name + ": " + str[name]);
              //lee objetos
+             if (str.hasOwnProperty(name)){
+                 this.group = name;
+             }
             }
         
        // console log no me da error pero me dice que no tengo declaradas ninguna de las let
