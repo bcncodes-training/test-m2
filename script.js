@@ -42,19 +42,45 @@ class Song {
             }*/
         
        //DE NUEVO
-       let track = tracks.shift();//problema, solo coge la primera!
-       let song = new Song(track.url, track.artist.name);
-       console.log(song);
+      // let track = tracks.shift();//problema, solo coge la primera!
+      // let song = new Song(track.url, track.artist.name);
+       //return song;// no me devuelve nada en el console log!!
+
+       //NUEVO II
+       //quiero recorrer TODO el objeto.
+       // for in me lo hacia, pero no me leia prop
+            
+       
+       for(track in tracks){
+           let url = tracks[track].url;
+           let group = tracks[track].artist.name;
+           let song = new Song (url, group);
+           //xk no se me relacionan con los parametros de arriba?!!
+           console.log(song);
+           
+       }
     }
     setItemSongTitle(title){
         //track[]
-        let track = tracks.shift();
-        let song = new Song(track.name);
+       // let track = tracks.shift();
+       // let song = new Song(track.name);
+       // return song;
+       for(track in tracks){
+        let title = tracks[track].name;
+        let song = new Song(title);
+        return song
+       }
     }
     setListeners(listeners){
         //sacar de setItem
-        let track = tracks.shift();
-        let song = new Song(track.listeners);
+       // let track = tracks.shift();
+       // let song = new Song(track.listeners);
+       // return song;
+       for(track in tracks){
+        let listeners = tracks[track].listeners;
+        let song = new Song(listeners);
+        return song
+       }
     }
     getNewElement(group,url,title,listeners){
 
