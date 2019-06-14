@@ -38,7 +38,10 @@ class Song {
     }
 
 }
-
+const menuItemSelected=(title)=>{
+    let menuItemSelected = document.getElementsByClassName('menu-item-selected');
+    menuItemSelected[0].innerText = title;
+}
 const loadSongs = (trackSongs) => {
     let newArr = JSON.parse(JSON.stringify(trackSongs));
     let contenedor = document.getElementsByClassName('lista');
@@ -52,9 +55,7 @@ const loadSongs = (trackSongs) => {
 }
 
 const loadOverview = () => {
-    let menuItemSelected = document.getElementsByClassName('menu-item-selected');
-    menuItemSelected[0].innerText = 'Overview';
-
+    menuItemSelected('Overview');
     loadSongs(tracks);
 }
 
@@ -69,31 +70,36 @@ const loadTenListened = () => {
         top10.push(moviesSorted[i]);
 
     }
-    let menuItemSelected = document.getElementsByClassName('menu-item-selected');
-    menuItemSelected[0].innerText = 'Top 10 Listened';
+    menuItemSelected('Top 10 Listened');
     loadSongs(top10);
 }
 
 const loadBiggest = (e) => {
-    let newArr = JSON.parse(JSON.stringify(tracks));
-    let only=[];
-    newArr.forEach(e=>{
-        only.filter(e2=>{
-            if (e2.artist==e.artist)
-            only.push(e);
-        })
+    let newArr = JSON.parse(JSON.stringify(tracks)); 1
+    let only = [];
+    let founded = false;
+    newArr.forEach(e1 => {
+        if (only.length > 0) {
+            only.filter((e2) => {
+                if (e2.artist.mbid == e1.artist.mbid) {
+                    e2.songs++;
+                    e2.listeners=parseFloat(e2.listeners)+parseFloat(e1.listeners);
+                    founded = true;
+                }
+            })
+        } else {
+            founded;
+        }
+        if (!founded) only.push({ 'artist': e1.artist, 'songs': 1, 'listeners': e1.listeners });
+    });
+    only.sort((a,b)=>{
+        if (a.songs>b.songs) return -1;
+        else return 1;
     })
-    console.log(only);
-    var groupBy = function (xs, key) {
-        return xs.reduce( (rv, x)=> {
-            console.log(rv[x[key]]);
-            (rv[x[key]] = rv[x[key]] || []).push(x);
-            return rv;
-        }, {});
-    };
-
-    console.log(groupBy(newArr, 'artist'));
-
+    menuItemSelected('The Biggest');
+    let lista=document.querySelector('.lista');
+    lista.innerHTML='';
+    lista.innerHTML=`El artista con mas canciones en el top 50 es '${only[0].artist.name}' con ${only[0].songs} canciones y un total de ${only[0].listeners} escuchas`;
 }
 function addEventListeners() {
     let overview = document.getElementById('overview').children[0].addEventListener('click', loadOverview);
