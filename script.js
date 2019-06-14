@@ -19,19 +19,19 @@ class Song {
         let a = document.createElement('a')
         a.setAttribute('class','far fa-play-circle');
         a.setAttribute('href', `"${this.url}"`);        
-        a.innerText = `"${this.group}: "`;
+        a.innerText = group;
         return a;
         }
     setItemSongTitle(title){
         let a = document.createElement('a');
         a.setAttribute('class','song-title')
-        a.innerText = `"${title} "`;
+        a.innerText = title;
         return a;
     }
     setListeners(listeners){
         let div = document.createElement('div');
         div.setAttribute('class', 'listeners');
-        div.innerText =`"${listeners}"`;
+        div.innerText =listeners;
         return div;    
     }    
     
