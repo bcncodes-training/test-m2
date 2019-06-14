@@ -4,8 +4,7 @@ class Song {
         this.name = name;
         this.listeners = listeners;
         this.url = url;
-        
-
+        this.getNewElement = getNewElement(this.setItemLi());
 
     }
 //getElement para .lista
