@@ -13,7 +13,7 @@ class Song {
 
 //elementos llamada html
     setItemLi(){
-        let list = document.createElement("li");
+        let list = document.createElement("li", ("button"));
         let enlace = document.createElement("a");
         let box = document.createElement("div");
         let element1 = document.getElementById("lista");
@@ -23,6 +23,7 @@ class Song {
         element1.appendChild(list);
         let html = element1.outerHTML;//coge TODO el html
         console.log(html);
+        //dibujado el container, ¿como introduzco los datos? callback
     }
     
     setItemGroupName(group,url){
