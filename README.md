@@ -75,8 +75,7 @@ La función loadSong recibirá por parámetro el array de canciones y realizará
 - añadirá el list item creado al elemento `<div class="lista">`
 
 ### Iteración 3: Cargar el listado de canciones con la carga de la página (2pts).
-
-Crea una función `init()` asociada al evento `onload` de la página. Esta función realizará las siguientes tareas:
+  
 - Asociará al título ` <h2 class=menu-item-selected></h2>` el nombre del elemento 'Overview'.
 - El elemento 'Overview' quedará enfocado al cargar la página.
 - Cargará el listado general de canciones.
